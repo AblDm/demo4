@@ -5,7 +5,7 @@ import com.example.demo.services.BookService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("books")
 public class BookController {
 
 
@@ -14,14 +14,14 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/{id}")  // GET http://localhost:8080/books/23
+    @GetMapping("{id}")  // GET http://localhost:8080/books/23
     public Book getBookInfo(@PathVariable long id) {
 
         return bookService.findBook(id);
     }
 
-    @PostMapping("/") // POST http://localhost:8080/books/23
-    public Book createBook (Book book) {
+    @PostMapping // POST http://localhost:8080/books/23
+    public Book createBook (@RequestBody Book book) {
         return bookService.createBook(book);
     }
 
