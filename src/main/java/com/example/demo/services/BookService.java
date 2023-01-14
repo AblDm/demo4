@@ -1,6 +1,6 @@
-package com.example.api_swagger.services;
+package com.example.demo.services;
 
-import com.example.api_swagger.model.Book;
+import com.example.demo.model.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
