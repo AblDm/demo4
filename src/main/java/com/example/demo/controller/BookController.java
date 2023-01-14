@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.api_swagger.model.Book;
+import com.example.demo.model.Book;
 import com.example.demo.services.BookService;
 import org.springframework.web.bind.annotation.*;
 
