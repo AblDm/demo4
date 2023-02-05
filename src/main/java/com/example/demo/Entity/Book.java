@@ -1,18 +1,42 @@
-package com.example.demo.model;
+package com.example.demo.Entity;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-    private long id;
+    public Book() {
+    }
+
+    @GeneratedValue
+
     private String name;
     private String author;
 
+    @ManyToOne
+    @JoinColumn(name = "reader_id")
+    private Reader reader;
 
+    public Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
+    }
 
     public long getId() {
         return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public void setId(long id) {
         this.id = id;
