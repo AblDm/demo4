@@ -3,10 +3,13 @@ package com.example.demo;
 
 import com.example.demo.Entity.Book;
 import com.example.demo.controller.BookController;
+import com.example.demo.controller.ExpenseController;
 import com.example.demo.repositories.BookCoverRepository;
 import com.example.demo.repositories.BookRepository;
+import com.example.demo.repositories.ExpenseRepository;
 import com.example.demo.services.BookCoverService;
 import com.example.demo.services.BookService;
+import com.example.demo.services.ExpenseService;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -35,11 +38,16 @@ class Demo4ApplicationTestsWithMock {
     private BookRepository bookRepository;
     @MockBean
     private BookCoverRepository bookCoverRepository;
+    @MockBean
+    ExpenseRepository expenseRepository;
 
     @SpyBean
     private BookService bookService;
     @SpyBean
     private BookCoverService bookCoverService;
+    @SpyBean
+    private ExpenseService expenseService;
+
 
     @InjectMocks
     private BookController bookController;
@@ -56,6 +64,7 @@ class Demo4ApplicationTestsWithMock {
 
         bookObject.put("name",name);
         bookObject.put("author",author);
+        bookObject.put("id",id);
 
         Book book = new Book();
         book.setId(id);
